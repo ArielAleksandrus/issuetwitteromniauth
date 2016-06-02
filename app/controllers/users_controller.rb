@@ -1,0 +1,13 @@
+class UsersController < ApplicationController
+  def setup
+    puts 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+    puts 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+    puts ENV['TWITTER_ID']
+    puts ENV['TWITTER_SECRET']
+    puts 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+    puts 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+    env['omniauth.strategy'].options[:client_id] = ENV['TWITTER_ID']
+    env['omniauth.strategy'].options[:client_secret] = ENV['TWITTER_SECRET']
+    render nothing: true, status: 404
+  end
+end
